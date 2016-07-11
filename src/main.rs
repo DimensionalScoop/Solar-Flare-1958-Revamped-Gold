@@ -1,5 +1,11 @@
+// TODO: This will prevent unnecessary warning during development, but once the
+#![allow(dead_code)]
+
 extern crate telegram_bot;
 use telegram_bot::*;
+
+mod celestial;
+mod sys;
 
 pub static BOT_TOKEN: &'static str = "203403427:AAGbiRr7IbsN5WdVoPcgqMP9a_daW4yGkJM";
 
@@ -18,12 +24,24 @@ pub fn main() {
 		if let Some(m) = u.message {
 			// Answer the message, in case it was a text message.
 			if let MessageType::Text(text) = m.msg {
-				// Answer message with "Hi"
-				println!("{:?}", try!(api.send_message(
-					m.chat.id(),
-					format!("Hi, {}! d: {}", m.from.first_name, text),
-					None, None, None, None
-				)));
+
+				if &text == "secret" {
+					api.send_message(m.chat.id(), "In that case.. ANSWER, MORTAL!".to_string(), None, None, None, Some(ReplyMarkup::Keyboard(ReplyKeyboardMarkup {
+							keyboard: vec![vec!["a".to_string(), "b".to_string()]],
+							resize_keyboard: None,
+							one_time_keyboard: Some(true),
+							selective: None
+						}
+					))).expect("Could not send keyboard");
+				}
+				else {
+					// Answer message with "Hi"
+					println!("{:?}", try!(api.send_message(
+						m.chat.id(),
+						format!("Hi, {}! d: {}", m.from.first_name, text),
+						None, None, None, None
+					)));
+				}
 			}
 		}
 
