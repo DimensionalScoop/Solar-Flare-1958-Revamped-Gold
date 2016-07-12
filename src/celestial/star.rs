@@ -10,7 +10,7 @@ pub struct Star {
 }
 
 impl Star {
-	pub fn new(size: f64, mass: f64, brightness: f32, surface_temp: u32) -> Star {
+	pub fn new(size: f64, mass: f32, brightness: f32, surface_temp: u32) -> Star {
 
 		// Roughly determine the colour the star must have from the surface temperature.
 		let colour = Colour::from_rgb(match surface_temp {

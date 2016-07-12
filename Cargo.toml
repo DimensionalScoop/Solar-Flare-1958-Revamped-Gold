@@ -3,7 +3,7 @@ name = "solar_flare"
 version = "0.1.0"
 authors = [
 "Arne Dußin <arne.dussin@live.de>",
-"Max Pernklau <hhelibeb@web.de>"
+"Max Pernklau <pqdot-l@outlook.com>"
 ]
 
 [dependencies]
