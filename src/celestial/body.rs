@@ -7,7 +7,7 @@ use std::f64::consts::PI;
 /// generally happily floating about in space.
 pub trait Body {
 	/// The size of the celestial body. Return the radius in kilometers.
-	fn size(&self) -> f64;
+	fn size(&self) -> f32;
 	/// The mass of the body in earth masses.
 	fn mass(&self) -> f32;
 
@@ -15,7 +15,7 @@ pub trait Body {
 	// Usually it should be fine to leave the default and not implement this function seperately.
 	fn volume(&self) -> f32 {
 		// For our purposes, it will suffice to assume, the body is a *perfect sphere*.
-		((4.0/3.0) * PI * self.size().powi(3)) as f32
+		((4.0/3.0) * PI * self.size().powi(3) as f64) as f32
 	}
 
 	/// The average density of the body in kg/m^3.

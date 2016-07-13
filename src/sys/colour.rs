@@ -3,6 +3,7 @@ use std::u8;
 /// Colour structure
 ///
 /// This represents a colour with an optional alpha-channel.
+#[derive(PartialEq)]
 pub struct Colour {
 	/// The red component
 	r: u8,

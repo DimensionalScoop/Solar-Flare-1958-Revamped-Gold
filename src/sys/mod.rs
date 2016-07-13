@@ -6,3 +6,5 @@
 //! not part of this module.
 pub mod colour;
 pub use self::colour::Colour;
+
+pub mod consts;
